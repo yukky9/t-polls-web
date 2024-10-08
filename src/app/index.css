@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root,
+#root,
+#docs-root{
+
+}
+
+input::file-selector-button{
+    display: none;
+}
