@@ -6,7 +6,7 @@
 :root,
 #root,
 #docs-root{
-
+    --light-blue: rgba(73, 135, 247, 0.5);
 }
 
 input::file-selector-button{

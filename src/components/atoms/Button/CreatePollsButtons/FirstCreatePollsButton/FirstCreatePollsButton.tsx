@@ -1,10 +1,14 @@
 import React from 'react';
 
-const FirstCreatePollsButton = () => {
+type CreatePollsProp = {
+    children: string
+}
+
+const FirstCreatePollsButton = ({children}:CreatePollsProp) => {
     return (
-        <div>
-            
-        </div>
+        <button className='bg-light-blue rounded-2xl w-64 h-24'>
+            {children}
+        </button>
     );
 };
 

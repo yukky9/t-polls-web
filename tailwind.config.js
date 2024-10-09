@@ -11,7 +11,11 @@ module.exports = {
         },
       ],
     },
-    extend: {},
+    extend: {
+      colors:{
+        'light-blue': 'var(--light-blue)',
+      }
+    },
   },
   plugins: [],
 }

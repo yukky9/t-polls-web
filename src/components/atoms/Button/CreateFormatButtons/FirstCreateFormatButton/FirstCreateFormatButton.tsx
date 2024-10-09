@@ -1,10 +1,14 @@
 import React from 'react';
 
-const FirstCreateFormatButton = () => {
+type CreateFormatProp = {
+    children: string
+}
+
+const FirstCreateFormatButton = ({children}:CreateFormatProp) => {
     return (
-        <div>
-            
-        </div>
+        <button className='bg-light-blue rounded-2xl w-24 h-8'>
+            {children}
+        </button>
     );
 };
 
