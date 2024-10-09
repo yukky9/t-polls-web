@@ -14,7 +14,7 @@ const NavText = ({path, children}:NavItemProps) => {
 
     useEffect(() => {
         setActive(currentPath.includes(path))
-    }, [currentPath])
+    }, [currentPath, path])
 
     return (
         <Link to={path}>
