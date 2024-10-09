@@ -1,10 +1,14 @@
 import React from 'react';
 
-const FirstStatisticsFormButton = () => {
+type StatisticsProp = {
+    children: string
+}
+
+const FirstStatisticsFormButton = ({children}:StatisticsProp) => {
     return (
-        <div>
-            
-        </div>
+        <button className='bg-light-blue rounded-2xl w-32 h-8'>
+            {children}
+        </button>
     );
 };
 
