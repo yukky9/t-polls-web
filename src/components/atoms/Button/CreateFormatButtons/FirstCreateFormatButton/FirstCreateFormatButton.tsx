@@ -6,7 +6,7 @@ type CreateFormatProp = {
 
 const FirstCreateFormatButton = ({children}:CreateFormatProp) => {
     return (
-        <button className='bg-light-blue rounded-2xl w-24 h-8'>
+        <button className='bg-light-blue rounded-2xl w-32 h-8'>
             {children}
         </button>
     );

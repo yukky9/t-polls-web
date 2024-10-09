@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import addPollsIcon from '../../../../assets/Plus.png';
 import Modal from 'react-modal';
-import closeBt from '../../../../assets/closeOutlined.png'
-import FirstCreateFormatButton
-    from "../../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
+import closeBt from '../../../../assets/closeOutlined.png';
+import CreateForm from "../../../organisms/ModalLayouts/CreateForm/CreateForm";
+
 
 const AddPollsButton = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,21 +17,20 @@ const AddPollsButton = () => {
     };
 
     const modalContent = (
-        <div className='w-28 h-14'>
+        <div className='grid grid-cols-1 gap-10'>
             <button onClick={closeModal}>
-                <img className='' alt='closeBt' src={closeBt}/>
+                <img className='w-5 h-5' alt='closeBt' src={closeBt}/>
             </button>
-
-            <FirstCreateFormatButton children='Создать'/>
+            <CreateForm/>
         </div>
     );
     return (
         <div>
             <button
                 className="bg-none p-0.5 w-14 h-7">
-                <img onClick={openModal} className='w-5 h-5' src={addPollsIcon} alt="add icon"/>
+            <img onClick={openModal} className='w-5 h-5' src={addPollsIcon} alt="add icon"/>
             </button>
-            <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+            <Modal className='w-96 h-64 bg-white border-2 rounded-2xl mt-64 translate-x-96 ml-72' isOpen={modalIsOpen} onRequestClose={closeModal}>
                 {modalContent}
             </Modal>
         </div>
