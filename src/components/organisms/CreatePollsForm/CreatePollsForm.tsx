@@ -9,20 +9,24 @@ import FirstCreateFormatButton
 
 const CreatePollsForm = () => {
     return (
-        <div>
-            <div>
-                <div className='font-sans text-xl'>
+        <div className='p-10 grid grid-cols-1 gap-10'>
+            <div className='grid grid-cols-1 gap-3'>
+            <div className='flex gap-10'>
+                <div className='font-sans text-xl items-center'>
                     Название опроса
                 </div>
                 <QuestionInput/>
             </div>
-            <div>
+                <div className='grid grid-cols-1 gap-3'>
+            <div className='grid gap-3'>
                 <DopQuestion/>
                 <SecondRadioButton/>
             </div>
-            <div>
+            </div>
+            <div className='grid grid-cols-1 gap-3'>
                 <VariantsInput/>
                 <AddVariants/>
+            </div>
             </div>
             <FirstCreateFormatButton children='Создать'/>
         </div>
