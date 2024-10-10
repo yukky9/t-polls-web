@@ -5,11 +5,10 @@ const MainForm = () => {
     return (
         <div>
             <MainTopPanel/>
-            <ListViewPolls/>
-            <ListViewPolls/>
-            <ListViewPolls/>
-            <ListViewPolls/>
-
+            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
+            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
+            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
+            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
         </div>
     );
 };
