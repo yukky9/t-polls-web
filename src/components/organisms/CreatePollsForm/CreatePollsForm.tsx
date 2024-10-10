@@ -10,6 +10,7 @@ import ApiService from "../../../api";
 
 const CreatePollsForm = () => {
 	const [name, setName] = useState("");
+	const [description, setDescription] = useState("");
 	const [specialQuestion, setSpecialQuestion] = useState("");
 	const [specialAnswer, setSpecialAnswer] = useState(false);
 	const [criteria, setCriteria] = useState([""]);
@@ -49,6 +50,13 @@ const CreatePollsForm = () => {
 				</div>
 				<div className="grid grid-cols-1 gap-3">
 					<div className="grid gap-10">
+						<DopQuestion
+							onChange={(
+								event: React.ChangeEvent<HTMLInputElement>
+							) => {
+								setDescription(event.currentTarget.value);
+							}}
+						/>
 						<DopQuestion
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
@@ -100,10 +108,10 @@ const CreatePollsForm = () => {
 					onClick={(e) => {
 						new ApiService().createOnePoll({
 							name: name,
-							description: "desc",
-							criteria: [],
-							question: "",
-							answer: false,
+							description: description,
+							criteria: criteria,
+							question: specialQuestion,
+							answer: specialAnswer,
 						});
 					}}
 				/>
