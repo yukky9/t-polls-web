@@ -1,15 +1,32 @@
 import axios from "axios";
 
-class ApiService {
+export default class ApiService {
 	getUrl(url: string): string {
-		return `http://192.168.84.29:5000/api${url}`;
+		return `http://192.168.116.29:5000/api${url}`;
 	}
 
 	async getPolls(): Promise<Array<Poll>> {
-		const response = await axios.get<Array<Poll>>(
-			this.getUrl("/admin/polls")
-		);
+		const response = await axios.get<
+			Array<{
+				description: string;
+				name: string;
+				date: string;
+				id: number;
+				respondent_amount: number;
+				rating: number;
+			}>
+		>(this.getUrl("/admin/polls"));
 
+		// return response.data.map((val) => ({
+		// 	id: val.id,
+		// 	name: val.name,
+		// 	description: val.description,
+		// 	date: val.date,
+		// 	responders: val.respondent_amount,
+		// 	rating: val.rating,
+		// 	criteria: [],
+		// }));
+		//@ts-ignore
 		return response.data;
 	}
 

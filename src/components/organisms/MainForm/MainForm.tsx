@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import MainTopPanel from "../../molecules/MainTopPanel/MainTopPanel";
 import ListViewPolls from "../../molecules/ListView/ListViewPolls/ListViewPolls";
-const MainForm = () => {
-    return (
-        <div>
-            <MainTopPanel/>
-            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
-            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
-            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
-            <ListViewPolls theme='cdmslmcdlsd;,c;s' date='12.03.24' count={900} percent={93}/>
-        </div>
-    );
+
+interface props {
+	polls: Poll[];
+}
+
+const MainForm = (props: props) => {
+	console.log(props);
+	const [list, setList] = useState<any[]>([]);
+
+	useEffect(() => {
+		Promise.all(
+			props.polls.map((val, i) => (
+				<ListViewPolls
+					theme={val.name}
+					date={val.date}
+					count={123}
+					percent={93}
+				/>
+			))
+		).then((v) => {
+			setList(v.slice(0, 100));
+		});
+	}, [props]);
+
+	return (
+		<div>
+			<MainTopPanel />
+
+			{list}
+		</div>
+	);
 };
 
 export default MainForm;
