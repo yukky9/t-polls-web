@@ -7,26 +7,28 @@ import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
 import FirstCreateFormatButton
     from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
 
-const CreatePollsForm = () => {
+const PatternCreatePollsForm = () => {
     return (
         <div className='pl-96 p-32 grid grid-cols-1 gap-10'>
             <div className='grid grid-cols-1 gap-3 pl-44'>
-            <div className='grid grid-cols-1 gap-2'>
-                <div className='font-sans text-xl items-center'>
-                    Название опроса
+                <div className='grid grid-cols-1 gap-2'>
+                    <div className='font-sans text-xl items-center'>
+                        Название опроса
+                    </div>
+                    <QuestionInput/>
                 </div>
-                <QuestionInput/>
-            </div>
                 <div className='grid grid-cols-1 gap-3'>
                     <div className='grid gap-10'>
                         <DopQuestion/>
                         <div className='-mt-5'>
                             <SecondRadioButton/>
-                    </div>
-                    <div className='grid grid-cols-1 gap-5'>
-                <VariantsInput/>
-                <AddVariants/>
-            </div>
+                        </div>
+                        <div className='grid grid-cols-1 gap-5'>
+                            <VariantsInput/>
+                            <VariantsInput/>
+                            <VariantsInput/>
+                            <AddVariants/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,4 +37,4 @@ const CreatePollsForm = () => {
     );
 };
 
-export default CreatePollsForm;
+export default PatternCreatePollsForm;

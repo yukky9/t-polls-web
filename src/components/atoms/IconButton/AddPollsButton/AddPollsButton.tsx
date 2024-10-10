@@ -17,7 +17,7 @@ const AddPollsButton = () => {
     };
 
     const modalContent = (
-        <div className='grid grid-cols-1 gap-16'>
+        <div className='grid grid-cols-1 gap-24'>
             <button onClick={closeModal}>
                 <img className='m-0.5 w-5 h-5' alt='closeBt' src={closeBt}/>
             </button>

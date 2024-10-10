@@ -2,7 +2,7 @@ import React from 'react';
 
 const SecondRadioButton = () => {
     return (
-        <div className='flex gap-10'>
+        <div className='flex gap-10 pl-52'>
             <div className="flex gap-10">
                 <div className="inline-flex items-center">
                     <label className="relative flex items-center cursor-pointer">
