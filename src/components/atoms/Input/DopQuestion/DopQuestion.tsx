@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FirstModalForm = () => {
+const DopQuestion = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const FirstModalForm = () => {
     );
 };
 
-export default FirstModalForm;
+export default DopQuestion;

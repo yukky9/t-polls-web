@@ -7,13 +7,13 @@ import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
 import FirstCreateFormatButton
     from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
 
-const FirstCreatePollsFormPage = () => {
+const CreatePollsForm = () => {
     return (
         <div>
             <div>
-            <div className='font-sans text-xl'>
-                Название опроса
-            </div>
+                <div className='font-sans text-xl'>
+                    Название опроса
+                </div>
                 <QuestionInput/>
             </div>
             <div>
@@ -29,4 +29,4 @@ const FirstCreatePollsFormPage = () => {
     );
 };
 
-export default FirstCreatePollsFormPage;
+export default CreatePollsForm;

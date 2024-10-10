@@ -9,7 +9,7 @@ const FirstForm = () => {
         <div className='grid grid-cols-1 gap-5'>
             <CategoryDiagram/>
             <div className='text-center'>
-                <FirstStatisticsFormButton children='Далее'/>
+                <a href='/prognoz'><FirstStatisticsFormButton children='Далее'/></a>
             </div>
         </div>
     );

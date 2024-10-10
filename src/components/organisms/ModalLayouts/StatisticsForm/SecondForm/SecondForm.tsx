@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ListEditPollsButton = () => {
+const SecondForm = () => {
     return (
         <div>
-
+            
         </div>
     );
 };
 
-export default ListEditPollsButton;
+export default SecondForm;
