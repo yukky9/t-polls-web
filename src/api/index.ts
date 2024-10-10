@@ -27,7 +27,7 @@ class ApiService {
 
 	async getPoll(pollId: number): Promise<Poll> {
 		const response = await axios.get<Poll>(
-			this.getUrl(`/admin/poll?poll_id=${pollId}`)
+			this.getUrl(`/admin/poll?id=${pollId}`)
 		);
 
 		return response.data;
@@ -53,7 +53,7 @@ class ApiService {
 
 	async deletePoll(data: number): Promise<string> {
 		const response = await axios.delete<string>(
-			this.getUrl("/admin/poll?poll_id=" + data)
+			this.getUrl("/admin/poll?id=" + data)
 		);
 
 		return response.data;
@@ -69,7 +69,7 @@ class ApiService {
 		templateId: number
 	): Promise<Array<CriteriaTemplate>> {
 		const response = await axios.get<Array<CriteriaTemplate>>(
-			this.getUrl(`/admin/template?template_id=${templateId}`)
+			this.getUrl(`/admin/template?id=${templateId}`)
 		);
 
 		return response.data;
@@ -101,7 +101,7 @@ class ApiService {
 	}
 	async deleteTemplate(data: number): Promise<string> {
 		const response = await axios.delete<string>(
-			this.getUrl("/admin/template?template_id=" + data)
+			this.getUrl("/admin/template?id=" + data)
 		);
 
 		return response.data;
