@@ -16,8 +16,9 @@ const MainForm = (props: props) => {
 				<ListViewPolls
 					theme={val.name}
 					date={val.date}
-					count={123}
-					percent={93}
+					//@ts-ignore
+					count={val.respondent_amount}
+					percent={val.rating}
 				/>
 			))
 		).then((v) => {
