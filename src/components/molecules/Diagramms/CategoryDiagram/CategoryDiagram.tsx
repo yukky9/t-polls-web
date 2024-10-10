@@ -18,7 +18,7 @@ const CategoryDiagram = () => {
         ],
     };
     return (
-        <div className='text-center items-center'>
+        <div className='w-9/12 pl-96 pt-20'>
             <Bar data={data}/>
         </div>
     );

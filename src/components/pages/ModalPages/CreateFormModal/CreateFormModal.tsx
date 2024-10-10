@@ -1,8 +1,6 @@
 import React from 'react';
 import CloseButton from "../../../atoms/IconButton/CloseButton/CloseButton";
 import PatternCardView from "../../../organisms/CardView/PatternCardView";
-import FirstCreatePollsButton
-    from "../../../atoms/Button/CreatePollsButtons/FirstCreatePollsButton/FirstCreatePollsButton";
 
 const CreateFormModal = () => {
     return (
