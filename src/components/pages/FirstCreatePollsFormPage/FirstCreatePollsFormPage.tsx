@@ -1,30 +1,13 @@
 import React from 'react';
-import QuestionInput from "../../atoms/Input/QuestionInput/QuestionInput";
-import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
-import SecondRadioButton from "../../atoms/RadioButtons/SecondRadioButton";
-import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
-import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
-import FirstCreateFormatButton
-    from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
+import CreatePollsForm from "../../organisms/CreatePollsForm/CreatePollsForm";
+import CloseButton from "../../atoms/IconButton/CloseButton/CloseButton";
+
 
 const FirstCreatePollsFormPage = () => {
     return (
-        <div>
-            <div>
-            <div className='font-sans text-xl'>
-                Название опроса
-            </div>
-                <QuestionInput/>
-            </div>
-            <div>
-                <DopQuestion/>
-                <SecondRadioButton/>
-            </div>
-            <div>
-                <VariantsInput/>
-                <AddVariants/>
-            </div>
-            <FirstCreateFormatButton children='Создать'/>
+        <div className='p-10'>
+            <a href='/'><CloseButton/></a>
+            <CreatePollsForm/>
         </div>
     );
 };
