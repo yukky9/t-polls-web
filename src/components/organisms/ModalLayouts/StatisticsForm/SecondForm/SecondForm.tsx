@@ -8,10 +8,6 @@ import PrognozCard from "../../../../molecules/Cards/PrognozCard/PrognozCard";
 const SecondForm = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const openModal = () => {
-        setModalIsOpen(true);
-    };
-
     const closeModal = () => {
         setModalIsOpen(false);
     };
