@@ -7,9 +7,10 @@ const CardView = () => {
 	const [templates, setTemplates] = React.useState<Template[]>([]);
 
 	useEffect(() => {
-		new ApiService().getTemplates().then((r) => {
-			setTemplates(r);
-		});
+		if (templates.length === 0)
+			new ApiService().getTemplates().then((r) => {
+				setTemplates(r);
+			});
 	});
 
 	return (

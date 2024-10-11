@@ -35,11 +35,20 @@ const PatternCreatePollsForm = (props: props) => {
 			.getTemplateCriteria(props.templateId)
 			.then((v: any) => {
 				setLoad(true);
-
+				console.log(v);
 				setTemplate(v);
 				const newc = criteria;
-				if (criteria[0] != v["1"]) newc.push(v["1"], v["2"], v["3"]);
+				const e: Array<string> = Object.values(v);
+
+				e.splice(e.indexOf(v.name), 1);
+
+				if (criteria[0] !== e[0]) {
+					e.forEach((el) => {
+						newc.push(el);
+					});
+				}
 				setCriteria(newc);
+				console.log(criteria, v);
 			});
 	}, [load, template, criteria]);
 
@@ -130,17 +139,21 @@ const PatternCreatePollsForm = (props: props) => {
 					</div>
 				</div>
 			</div>
-			<a className="pl-96" href="/">
+			<a className="pl-96">
 				<FirstCreateFormatButton
 					children="Создать"
 					onClick={(e) => {
-						new ApiService().createOnePoll({
-							name: name,
-							description: description,
-							criteria: criteria,
-							question: specialQuestion,
-							answer: specialAnswer,
-						});
+						new ApiService()
+							.createOnePoll({
+								name: name,
+								description: description,
+								criteria: criteria,
+								question: specialQuestion,
+								answer: specialAnswer,
+							})
+							.then(() => {
+								window.location.href = "/";
+							});
 					}}
 				/>
 			</a>

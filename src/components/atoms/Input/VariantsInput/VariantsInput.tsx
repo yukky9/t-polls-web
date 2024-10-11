@@ -4,12 +4,14 @@ import deleteVariant from "../../../../assets/Vector.png";
 type props = {
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 	onClose?: React.MouseEventHandler<HTMLButtonElement>;
+	value: string;
 };
 
 const VariantsInput = (props: props) => {
 	return (
 		<div className="w-96 flex gap-1 items-center justify-center">
 			<input
+				value={props.value}
 				type="text"
 				id="small-input"
 				onChange={props.onChange}

@@ -9,8 +9,6 @@ import ApiService from "../../../api";
 import AddCriteriyInput from "../../atoms/Input/AddCriteriy/AddCriteriyInput";
 import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
 
-
-
 const CreatePollsForm = () => {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
@@ -67,18 +65,25 @@ const CreatePollsForm = () => {
 								setSpecialQuestion(event.currentTarget.value);
 							}}
 						/>
-						<DopQuestion/>
-						<div className='flex gap-3 items-center'>
-							<label className='text-xl'>Правильный ответ</label>
+						<DopQuestion
+							onChange={function (
+								event: React.ChangeEvent<HTMLInputElement>
+							): void {}}
+						/>
+						<div className="flex gap-3 items-center">
+							<label className="text-xl">Правильный ответ</label>
 							<SecondRadioButton
 								onChange={(val: boolean) => {
 									setSpecialAnswer(val);
 								}}
 							/>
 						</div>
-						<label htmlFor="base-input"
-							   className="block mb-2 text-xl font-medium text-gray-900 dark:text-black">Добавить
-							критерий</label>
+						<label
+							htmlFor="base-input"
+							className="block mb-2 text-xl font-medium text-gray-900 dark:text-black"
+						>
+							Добавить критерий
+						</label>
 						<div className="grid grid-cols-1 gap-5">
 							<div className=" grid grid-cols-1 gap-3">
 								<button
@@ -107,9 +112,10 @@ const CreatePollsForm = () => {
 								})}
 							</div>
 						</div>
-						<AddCriteriyInput onChange={() => {
-						}} onClose={() => {
-						}}/>
+						<AddCriteriyInput
+							onChange={() => {}}
+							onClose={() => {}}
+						/>
 					</div>
 				</div>
 			</div>

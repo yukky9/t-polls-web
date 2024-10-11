@@ -17,7 +17,6 @@ const MainRouter = () => {
 			<Routes>
 				<Route path="/" element={<LightGeneralPage />} />
 				<Route path="/pattern" element={<PatternPage />} />
-				<Route path="/prognoz" element={<SecondForm />} />
 				<Route path="/formatPolls" element={<AddPollsButton />} />
 				<Route path="/createByPattern" element={<CreateFormModal />} />
 				<Route

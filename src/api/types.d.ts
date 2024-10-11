@@ -4,8 +4,9 @@ interface Poll {
 	description: string;
 	date: Date;
 	responders: number;
+	offer: string;
 	rating: number;
-	criteria: { criteria_id: number; criteria_name: string }[];
+	criteria: { criteria_id: number; criteria_name: string; csat: number }[];
 }
 
 interface PollCreate {

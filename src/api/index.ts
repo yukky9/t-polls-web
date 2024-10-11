@@ -103,6 +103,13 @@ export default class ApiService {
 		return response.data;
 	}
 
+	async generateTemplate(name: string): Promise<Array<string>> {
+		const response = await axios.get(
+			this.getUrl(`/admin/generated_template?name=${name}`)
+		);
+		return response.data;
+	}
+
 	async updateTemplate(data: TemplateEdit): Promise<string> {
 		const response = await axios.put<string>(
 			this.getUrl("/admin/template"),

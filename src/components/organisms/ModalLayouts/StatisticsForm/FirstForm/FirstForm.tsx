@@ -6,7 +6,8 @@ import Modal from "react-modal";
 import SecondForm from "../../../../organisms/ModalLayouts/StatisticsForm/SecondForm/SecondForm";
 
 type props = {
-	rating: { name: string; rating: 1 | 2 | 3 | 4 | 5 }[];
+	rating: { name: string; rating: number }[];
+	predict: string;
 };
 
 const FirstForm = (props: props) => {
@@ -20,12 +21,21 @@ const FirstForm = (props: props) => {
 		setModalIsOpen(false);
 	};
 
+	const midAreph = () => {
+		const e = props.rating.map((val) => val.rating);
+		let a = 1;
+		e.forEach((v) => {
+			a *= v;
+		});
+		return a / e.length;
+	};
+
 	const modalContent = (
 		<div className="grid grid-cols-1">
 			<button onClick={closeModal}>
 				<img className="m-0.5 w-5 h-5" alt="closeBt" src={closeBt} />
 			</button>
-			<SecondForm />
+			<SecondForm rating={midAreph()} predict={props.predict} />
 		</div>
 	);
 

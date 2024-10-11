@@ -5,7 +5,12 @@ import FirstForm from "../../../../organisms/ModalLayouts/StatisticsForm/FirstFo
 import Modal from "react-modal";
 import PrognozCard from "../../../../molecules/Cards/PrognozCard/PrognozCard";
 
-const SecondForm = () => {
+type props = {
+	rating: number;
+	predict: string;
+};
+
+const SecondForm = (props: props) => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const closeModal = () => {
@@ -17,13 +22,17 @@ const SecondForm = () => {
 			<button onClick={closeModal}>
 				<img className="m-0.5 w-5 h-5" alt="closeBt" src={closeBt} />
 			</button>
+			<FirstForm rating={[]} predict={props.predict} />
 		</div>
 	);
 	return (
 		<div className="grid grid-cols-1 gap-28">
 			<div className="text-center flex flex-row">
-				<GeneralDiagram />
-				<PrognozCard text="" title="Предположения нейросети" />
+				<GeneralDiagram rating={props.rating} />
+				<PrognozCard
+					text={props.predict}
+					title="Предположения нейросети"
+				/>
 			</div>
 			<Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
 				{modalContent}
