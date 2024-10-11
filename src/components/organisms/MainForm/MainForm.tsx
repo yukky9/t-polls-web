@@ -27,9 +27,10 @@ const MainForm = (props: props) => {
 
 	return (
 		<div>
+		<table className='table h-full'>
 			<MainTopPanel />
-
 			{list}
+		</table>
 		</div>
 	);
 };

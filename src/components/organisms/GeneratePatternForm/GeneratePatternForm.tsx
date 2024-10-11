@@ -1,10 +1,10 @@
 import React from "react";
 import QuestionInput from "../../atoms/Input/QuestionInput/QuestionInput";
-import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
+import Description from "../../atoms/Input/Description/Description";
 import SecondRadioButton from "../../atoms/RadioButtons/SecondRadioButton";
-import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
 import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
 import FirstCreateFormatButton from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
+import AddCriteriyInput from "../../atoms/Input/AddCriteriy/AddCriteriyInput";
 
 const GeneratePatternForm = () => {
 	return (
@@ -22,7 +22,7 @@ const GeneratePatternForm = () => {
 				</div>
 				<div className="grid grid-cols-1 gap-3">
 					<div className="grid gap-10">
-						<DopQuestion
+						<Description
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
 							) => {}}
@@ -33,7 +33,7 @@ const GeneratePatternForm = () => {
 							/>
 						</div>
 						<div className="grid grid-cols-2 gap-5 -ml-48">
-							<VariantsInput
+							<AddCriteriyInput
 								onChange={(
 									event: React.ChangeEvent<HTMLInputElement>
 								) => {}}

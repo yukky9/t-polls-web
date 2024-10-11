@@ -4,7 +4,7 @@ import NavLine from "../../atoms/NavLine/NavLine";
 
 const Navigation = () => {
 	return (
-		<div className="grid grid-rows-1 h-64">
+		<div className="grid grid-rows-1 h-14">
 			<div className="flex">
 				<NavForm />
 				<NavLine />

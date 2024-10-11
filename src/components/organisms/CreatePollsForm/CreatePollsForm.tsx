@@ -1,12 +1,15 @@
 import React, { useReducer, useState } from "react";
 import QuestionInput from "../../atoms/Input/QuestionInput/QuestionInput";
-import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
+import Description from "../../atoms/Input/Description/Description";
 import SecondRadioButton from "../../atoms/RadioButtons/SecondRadioButton";
-import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
 import addVariants from "../../../assets/Plus.png";
-
+import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
 import FirstCreateFormatButton from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
 import ApiService from "../../../api";
+import AddCriteriyInput from "../../atoms/Input/AddCriteriy/AddCriteriyInput";
+import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
+
+
 
 const CreatePollsForm = () => {
 	const [name, setName] = useState("");
@@ -48,21 +51,26 @@ const CreatePollsForm = () => {
 					/>
 				</div>
 				<div className="grid grid-cols-1 gap-3">
-					<div className="grid gap-10">
-						<DopQuestion
+					<div className="grid gap-3">
+						<Description
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
 							) => {
 								setSpecialQuestion(event.currentTarget.value);
 							}}
 						/>
-						<div className="-mt-5">
+						<DopQuestion/>
+						<div className='flex gap-3 items-center'>
+							<label className='text-xl'>Правильный ответ</label>
 							<SecondRadioButton
 								onChange={(val: boolean) => {
 									setSpecialAnswer(val);
 								}}
 							/>
 						</div>
+						<label htmlFor="base-input"
+							   className="block mb-2 text-xl font-medium text-gray-900 dark:text-black">Добавить
+							критерий</label>
 						<div className="grid grid-cols-1 gap-5">
 							<div className=" grid grid-cols-1 gap-3">
 								<button
@@ -77,7 +85,7 @@ const CreatePollsForm = () => {
 								</button>
 								{criteria.map((c, index) => {
 									return (
-										<VariantsInput
+										<AddCriteriyInput
 											key={index}
 											onChange={(e) => onChange(e, index)}
 											onClose={(event) => {
@@ -86,11 +94,14 @@ const CreatePollsForm = () => {
 												setCriteria(newc);
 												forceUpdate();
 											}}
-										></VariantsInput>
+										></AddCriteriyInput>
 									);
 								})}
 							</div>
 						</div>
+						<AddCriteriyInput onChange={() => {
+						}} onClose={() => {
+						}}/>
 					</div>
 				</div>
 			</div>

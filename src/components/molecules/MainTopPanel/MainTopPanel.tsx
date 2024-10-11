@@ -1,6 +1,6 @@
 import React from 'react';
-import MainText from "../../atoms/MainText/MainText";
 import AddPollsButton from "../../atoms/IconButton/AddPollsButton/AddPollsButton";
+import MainText from "../../atoms/MainText/MainText";
 
 const MainTopPanel = () => {
     return (

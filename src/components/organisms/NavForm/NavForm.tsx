@@ -3,7 +3,7 @@ import NavText from "../../atoms/NavigationText/NavText";
 
 const NavForm = () => {
     return (
-        <div className='pl-20 grid gap-4'>
+        <div className='pl-20 grid'>
             <NavText path='/'>Опросы</NavText>
             <NavText path='/pattern'>Шаблоны</NavText>
         </div>

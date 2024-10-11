@@ -1,10 +1,10 @@
 import React, { ChangeEventHandler, useState } from "react";
 import QuestionInput from "../../atoms/Input/QuestionInput/QuestionInput";
-import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
+import Description from "../../atoms/Input/Description/Description";
 import SecondRadioButton from "../../atoms/RadioButtons/SecondRadioButton";
-import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
 import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
 import FirstCreateFormatButton from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
+import AddCriteriyInput from "../../atoms/Input/AddCriteriy/AddCriteriyInput";
 
 const PatternCreatePollsForm = () => {
 	const [name, setName] = useState("");
@@ -30,7 +30,7 @@ const PatternCreatePollsForm = () => {
 				</div>
 				<div className="grid grid-cols-1 gap-3">
 					<div className="grid gap-10">
-						<DopQuestion
+						<Description
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
 							) => {
@@ -45,17 +45,17 @@ const PatternCreatePollsForm = () => {
 							/>
 						</div>
 						<div className="grid grid-cols-1 gap-5">
-							<VariantsInput
+							<AddCriteriyInput
 								onChange={(
 									event: React.ChangeEvent<HTMLInputElement>
 								) => {}}
 							/>
-							<VariantsInput
+							<AddCriteriyInput
 								onChange={(
 									event: React.ChangeEvent<HTMLInputElement>
 								) => {}}
 							/>
-							<VariantsInput
+							<AddCriteriyInput
 								onChange={(
 									event: React.ChangeEvent<HTMLInputElement>
 								) => {}}
