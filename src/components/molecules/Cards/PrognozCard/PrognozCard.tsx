@@ -7,7 +7,7 @@ type PrognozText = {
 
 const PrognozCard = ({title, text}:PrognozText) => {
     return (
-        <div className='bg-gray-100 w-72 h-60 rounded-2xl p-5'>
+        <div className='bg-gray-100 w-auto h-auto rounded-2xl p-5'>
             {title}
             {text}
         </div>
