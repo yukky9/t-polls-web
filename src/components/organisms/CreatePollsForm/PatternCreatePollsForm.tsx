@@ -11,6 +11,7 @@ import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
 import addVariants from "../../../assets/Plus.png";
 import FirstCreateFormatButton from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
 import ApiService from "../../../api";
+import Description from "../../atoms/Input/Description/Description";
 
 type props = {
 	templateId: number;
@@ -86,7 +87,7 @@ const PatternCreatePollsForm = (props: props) => {
 				</div>
 				<div className="grid grid-cols-1 gap-3">
 					<div className="grid gap-10">
-						<DopQuestion
+						<Description
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
 							) => {

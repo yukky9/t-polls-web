@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class ApiService {
 	getUrl(url: string): string {
-		return `http://192.168.116.29:5000/api${url}`;
+		return `https://api.penki.tech/api${url}`;
 	}
 
 	async getPolls(): Promise<Array<Poll>> {
