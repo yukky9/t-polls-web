@@ -1,6 +1,5 @@
 import React from 'react';
 import DarkTitleText from "../../atoms/TitleText/DarkTitleText";
-import ThemeButton from "../../atoms/IconButton/ThemeButton/ThemeButton";
 
 const HeaderForLight = () => {
     return (
