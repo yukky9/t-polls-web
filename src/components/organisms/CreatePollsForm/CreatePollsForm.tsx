@@ -113,17 +113,21 @@ const CreatePollsForm = () => {
 					</div>
 				</div>
 			</div>
-			<a className="pl-96" href="/">
+			<a className="pl-96">
 				<FirstCreateFormatButton
 					children="Создать"
 					onClick={(e) => {
-						new ApiService().createOnePoll({
-							name: name,
-							description: description,
-							criteria: criteria,
-							question: specialQuestion,
-							answer: specialAnswer,
-						});
+						new ApiService()
+							.createOnePoll({
+								name: name,
+								description: description,
+								criteria: criteria,
+								question: specialQuestion,
+								answer: specialAnswer,
+							})
+							.then(() => {
+								window.location.href = "/";
+							});
 					}}
 				/>
 			</a>

@@ -1,18 +1,64 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, {
+	ChangeEventHandler,
+	useEffect,
+	useReducer,
+	useState,
+} from "react";
 import QuestionInput from "../../atoms/Input/QuestionInput/QuestionInput";
 import DopQuestion from "../../atoms/Input/DopQuestion/DopQuestion";
 import SecondRadioButton from "../../atoms/RadioButtons/SecondRadioButton";
 import VariantsInput from "../../atoms/Input/VariantsInput/VariantsInput";
-import AddVariants from "../../atoms/IconButton/AddVariants/AddVariants";
+import addVariants from "../../../assets/Plus.png";
 import FirstCreateFormatButton from "../../atoms/Button/CreateFormatButtons/FirstCreateFormatButton/FirstCreateFormatButton";
-import AddCriteriyInput from "../../atoms/Input/AddCriteriy/AddCriteriyInput";
+import ApiService from "../../../api";
 
-const PatternCreatePollsForm = () => {
+type props = {
+	templateId: number;
+};
+
+const PatternCreatePollsForm = (props: props) => {
+	const [template, setTemplate] = useState<CriteriaTemplate[] | null>(null);
+
 	const [name, setName] = useState("");
+	const [description, setDescription] = useState("");
 	const [specialQuestion, setSpecialQuestion] = useState("");
 	const [specialAnswer, setSpecialAnswer] = useState(false);
+	const [criteria, setCriteria] = useState<string[]>([]);
+	const [, forceUpdate] = useReducer((x) => x + 1, 0);
+	const [load, setLoad] = useState(false);
 
-	console.log(name, specialQuestion, specialAnswer);
+	useEffect(() => {
+		console.log(load);
+		if (load) return;
+		console.log(props);
+		new ApiService()
+			.getTemplateCriteria(props.templateId)
+			.then((v: any) => {
+				setLoad(true);
+
+				setTemplate(v);
+				const newc = criteria;
+				if (criteria[0] != v["1"]) newc.push(v["1"], v["2"], v["3"]);
+				setCriteria(newc);
+			});
+	}, [load, template, criteria]);
+
+	const onChange = (
+		event: React.ChangeEvent<HTMLInputElement>,
+		index: number
+	) => {
+		const newc = criteria;
+		newc[index] = event.currentTarget.value;
+		setCriteria(newc);
+		forceUpdate();
+	};
+
+	const onClick = () => {
+		const newc = criteria;
+		newc.push("");
+		setCriteria(newc);
+		forceUpdate();
+	};
 
 	return (
 		<div className="pl-96 p-32 grid grid-cols-1 gap-10">
@@ -31,7 +77,14 @@ const PatternCreatePollsForm = () => {
 				</div>
 				<div className="grid grid-cols-1 gap-3">
 					<div className="grid gap-10">
-						<AddCriteriyInput
+						<DopQuestion
+							onChange={(
+								event: React.ChangeEvent<HTMLInputElement>
+							) => {
+								setDescription(event.currentTarget.value);
+							}}
+						/>
+						<DopQuestion
 							onChange={(
 								event: React.ChangeEvent<HTMLInputElement>
 							) => {
@@ -46,28 +99,50 @@ const PatternCreatePollsForm = () => {
 							/>
 						</div>
 						<div className="grid grid-cols-1 gap-5">
-							<VariantsInput
-								onChange={(
-									event: React.ChangeEvent<HTMLInputElement>
-								) => {}}
-							/>
-							<VariantsInput
-								onChange={(
-									event: React.ChangeEvent<HTMLInputElement>
-								) => {}}
-							/>
-							<VariantsInput
-								onChange={(
-									event: React.ChangeEvent<HTMLInputElement>
-								) => {}}
-							/>
-							<AddVariants />
+							<div className=" grid grid-cols-1 gap-3">
+								<button
+									onClick={onClick}
+									className="bg-gray-300 rounded-xl p-0.5 w-96 h-7 pl-44"
+								>
+									<img
+										className="w-5 h-5"
+										src={addVariants}
+										alt="add icon"
+									/>
+								</button>
+								{criteria.map((c, index) => {
+									return (
+										<VariantsInput
+											key={index}
+											value={criteria[index]}
+											onChange={(e) => onChange(e, index)}
+											onClose={(event) => {
+												const newc = criteria;
+												newc.splice(index, 1);
+												setCriteria(newc);
+												forceUpdate();
+											}}
+										></VariantsInput>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<a className="pl-96" href="/">
-				<FirstCreateFormatButton children="Создать" />
+				<FirstCreateFormatButton
+					children="Создать"
+					onClick={(e) => {
+						new ApiService().createOnePoll({
+							name: name,
+							description: description,
+							criteria: criteria,
+							question: specialQuestion,
+							answer: specialAnswer,
+						});
+					}}
+				/>
 			</a>
 		</div>
 	);
