@@ -8,9 +8,6 @@ const HeaderForLight = () => {
             <div className='flex-auto w-9/12'>
                 <DarkTitleText/>
             </div>
-            <div className='flex-auto max-w-14'>
-                <ThemeButton/>
-            </div>
         </div>
     );
 };
