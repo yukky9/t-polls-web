@@ -65,11 +65,7 @@ const CreatePollsForm = () => {
 								setSpecialQuestion(event.currentTarget.value);
 							}}
 						/>
-						<DopQuestion
-							onChange={function (
-								event: React.ChangeEvent<HTMLInputElement>
-							): void {}}
-						/>
+
 						<div className="flex gap-3 items-center">
 							<label className="text-xl">Правильный ответ</label>
 							<SecondRadioButton
