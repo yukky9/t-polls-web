@@ -38,7 +38,7 @@ const PatternCreatePollsForm = (props: props) => {
 
 				setTemplate(v);
 				const newc = criteria;
-				if (criteria[0] != v["1"]) newc.push(v["1"], v["2"], v["3"]);
+				if (criteria[0] !== v["1"]) newc.push(v["1"], v["2"], v["3"]);
 				setCriteria(newc);
 			});
 	}, [load, template, criteria]);

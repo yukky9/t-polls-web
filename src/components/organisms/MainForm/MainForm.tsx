@@ -14,6 +14,7 @@ const MainForm = (props: props) => {
 		Promise.all(
 			props.polls.map((val, i) => (
 				<ListViewPolls
+					pollId={val.id}
 					theme={val.name}
 					date={val.date}
 					//@ts-ignore
