@@ -26,8 +26,8 @@ const SecondForm = (props: props) => {
 		</div>
 	);
 	return (
-		<div className="grid grid-cols-1 gap-28">
-			<div className="text-center flex flex-row">
+		<div className="grid grid-cols-1">
+			<div className="items-center justify-center flex flex-row">
 				<GeneralDiagram rating={props.rating} />
 				<PrognozCard
 					text={props.predict}

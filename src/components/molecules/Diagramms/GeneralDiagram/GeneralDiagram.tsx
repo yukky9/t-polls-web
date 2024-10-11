@@ -18,7 +18,7 @@ const GeneralDiagram = (props: props) => {
 	};
 
 	return (
-		<div className="w-9/12 h-96 pl-96 pt-20 p-96">
+		<div className="w-full h-96 pl-96 pt-20 p-96">
 			<Pie data={data} />
 		</div>
 	);
