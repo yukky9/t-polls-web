@@ -8,7 +8,7 @@ const PatternPage = () => {
         <div>
             <div className='grid grid-rows-none'>
                 <HeaderForLight/>
-                <div className='flex gap-16 mt-48'>
+                <div className='flex gap-16'>
                     <Navigation/>
                     <CardView/>
                 </div>
