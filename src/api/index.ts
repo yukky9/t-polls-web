@@ -88,7 +88,6 @@ export default class ApiService {
 		const response = await axios.get<Array<CriteriaTemplate>>(
 			this.getUrl(`/admin/template?id=${templateId}`)
 		);
-
 		return response.data;
 	}
 
